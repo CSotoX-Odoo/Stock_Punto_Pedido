@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--
+    Carlos Rafael Soto (CSotoX)
+    Odoo.soporte@gmail.com
+    Odoo v11
+
+    - CRE 20/FEB/2018 (CSOTOX)
+-->
+
+<template id="report_StockBajoTemplate">
+    <t t-call="web.external_layout">
+        <t t-call="Stock_Punto_Pedido.report_Stock_Bajo_Template_document"/>
+    </t>
+</template>
+
+<!-- 
+    - Falta agregar soporte para multicompañia y multi almacen (bodega)
+-->
+<template id="report_Stock_Bajo_Template_document">
+    <t t-call="web.html_container">
+        
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Listado de productos con Stock Bajo</h2>
+
+                <table class="table table-condensed table-striped table-bordered">
+                    <thead class="bg-info">
+                        <tr>
+                            <th class="text-center">Referencia</th>
+                            <th class="text-center">Producto</th>
+                            <th class="text-center">Stock a mano</th>
+                            <th class="text-center">Stock min</th>
+                            <th class="text-center">Stock max</th>
+                            <th class="text-center">Unidad de Venta</th>
+                            <th class="text-center">Unidad de Compra</th>
+                            <th class="text-center">Costo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <t t-foreach="docs" t-as="linea">
+                            <tr>
+                                <td> <span t-field="linea.default_code"/> </td>
+                                <td> <span t-field="linea.display_name"/> </td>
+                                <td class="text-right"> <span t-field="linea.qty_available"/> </td>
+                                <td class="text-right"> <span t-field="linea.reordering_min_qty"/> </td>
+                                <td class="text-right"> <span t-field="linea.reordering_max_qty"/> </td>
+                                <td class="text-right"> <span t-field="linea.uom_id"/> </td>
+                                <td class="text-right"> <span t-field="linea.uom_po_id"/> </td>
+                                <td class="text-right"> <span t-field="linea.standard_price"/> </td>
+                            </tr>
+                        </t> <!-- t-foreach="docs" -->
+                    </tbody>
+                </table>
+            </div>
+        </t> <!-- t-call="web.external_layout" -->
+    </t> <!-- t-call="web.html_container" -->
+</template>
+
+</odoo>

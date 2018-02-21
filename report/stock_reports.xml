@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--
+    Carlos Rafael Soto (CSotoX)
+    Odoo.soporte@gmail.com
+    Odoo v11
+
+    - CRE 20/FEB/2018 (CSOTOX)
+-->
+
+    <!--
+        Configuración del reporte
+    -->
+    <data>
+        <report
+            id="report_product_stock_bajo"
+            string="Productos con Stock bajo"
+            model="product.template"
+            report_type="qweb-pdf"
+            name="Stock_Punto_Pedido.report_Stock_Bajo_Template_document"
+            file="Stock_Punto_Pedido.report_Stock_Bajo_Template_document"
+            print_report_name="'ProductosConStockBajo - %s' % (object.name)"
+        />
+    </data>
+</odoo>
