@@ -6,6 +6,12 @@
     Odoo v11
 
     - CRE 20/FEB/2018 (CSOTOX)
+
+    - Muestra el campo de punto de pedido para tener una visual de lo que ocurre
+      no vale la pena actualizar este archivo
+      x_punto_pedido
+
+      
 -->
 
     <!--
@@ -26,6 +32,7 @@
                 <field name="uom_id" string="Unidad de Venta"/>
                 <field name="uom_po_id" string="Unidad de Compra"/>
                 <field name="standard_price" string="Costo"/>
+                <field name="x_punto_pedido" string="PuntoPed"/>
             </tree>
         </field>
     </record>
