@@ -6,6 +6,10 @@
     Odoo v11
 
     - CRE 20/FEB/2018 (CSOTOX)
+    - MOD 22/FEB/2018 (CSOTOX)
+      - El nuevo filtro esta basado en el valor calculado de: x_punto_pedido
+        ahora solo muestra los productos que tienen Stock Bajo
+
 -->
 
     <!--
@@ -32,17 +36,9 @@
 
     <!--
         Aplico los filtros de manera automatica para:
-            - Mostrar solamente registros cuya propiedad Type = product
-        
-        Faltan filtros:
-            - Que el Stock a mano sea menor o igual al Stock minimo
-              configurado en las reglas de abastecimiento
-              ('qty_available', '<=', 'reordering_min_qty')
-              No se por que no funciona
-            - Que solo muestre los productos que tienen regla de abastecimiento
-              ('nbr_reordering_rules', '!=', 0)
-              Tampoco quiere funcionar.
-
+            - Muestro solamente productos almacenables
+            - Que tengan regla de abastecimiento
+            - Que el Stock a Mano sea menor al Stock Mínimo
     -->
     <record id="noti_stock_bajo_action" model="ir.actions.act_window">
         <field name="name">Productos con Stock Bajo</field>
@@ -51,7 +47,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain" eval="[('type', '=', 'product')]"/>
+        <field name="domain" eval="[('type','=', 'product'), ('x_punto_pedido', '=', True)]"/>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
             No hay productos con Stock Bajo.
@@ -65,10 +61,6 @@
             </p>
         </field>
     </record>
-
-<!--
-eval="[('picking_id.picking_type_id.code','=','incoming'), ('location_id.usage','!=','internal'), ('location_dest_id.usage', '=', 'internal')]"/>
--->
 
     <!--
         Definimos el Sub-Menu

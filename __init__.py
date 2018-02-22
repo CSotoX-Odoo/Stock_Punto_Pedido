@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 
 # Carlos Rafael Soto (CSotoX)
@@ -6,5 +5,7 @@
 # Odoo v11
 
 # CRE 20/FEB/2018 (CSOTOX)
+# MOD 21/FEB/2018 (CSOTOX)
+#     - Se agrego import models
 
-from . import Stock_Punto_Pedido
+from . import models
