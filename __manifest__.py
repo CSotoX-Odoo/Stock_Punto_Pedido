@@ -8,7 +8,7 @@
 
 {
     'name': 'Stock_Punto_Pedido',
-    'version': '11.1.0',
+    'version': '11.2.0',
     'category': 'Stock',
     'sequence': 10,
     'author' : 'Carlos Rafael Soto (CSOTOX)',
